@@ -10,24 +10,33 @@ def derivative(a,b,n):
     dub = np.eye(n)
     dub[0][0] = 2
     dub[-1][-1] = 2
-    print(dub)
+    #print(dub)
     D = (dub@D)/(deltax*2)
     return D
 
-def plot(D,x,f,title):
+def second_derivative(a,b,n):
+    deltax = (b-a)/(n-1)
+    D2 = (np.eye(n,n,1)+np.eye(n,n,-1)-2*np.eye(n))
+    D2[0][0] = -1
+    D2[-1][-1] = -1
+    return (D2/(detax**2)
+
+def plot(D,D2,x,f,title):
     """plot(D,x,f) takes four parameters:
     D = the matrix created by derivative(a,b,n)
     x = the x coordinates from a generate function
     f = the y coordinates form a generate function
     titale = string title"""
     dfdx = D @ f
+    d2fdx2 = D2 @ f
     plt.plot(x,f)
     plt.plot(x,dfdx)
+    plt.plot(x,d2fdx2)
     plt.xlabel('x')
     plt.ylabel('y')
     plt.title(title)
-    plt.legend([f,dfdx])
-    plt.show()
+    plt.legend([r'$f$',r'$dfdx$',r'$d^2fdx^2$'])
+    #plt.show()
 
 def gen_xsqr_array(a,b,n=1000):
     """gen_xsqr_array(a, b, n=1000)
