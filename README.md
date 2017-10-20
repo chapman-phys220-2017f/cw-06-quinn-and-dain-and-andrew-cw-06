@@ -19,7 +19,7 @@ Pro-tip: using git to manage conflicts on Jupyter notebooks is a pain. I recomme
 
 Analyze in this section what you found useful about this assignment in your own words. Include any lingering questions or comments that you may have.
 
-The use of arrays to perform derivatives (and I'm sure integrals in the future) has the potential to make everything much easier when doing calculus on data points.  Especially when we want to get higher derivatives or inegrals we dont have to make a new function, we can simply take the product of 2 symmetric difference matrices.
+The use of arrays to perform derivatives (and I'm sure integrals in the future) has the potential to make everything much easier when doing calculus on data points.  Especially when we want to get higher derivatives or integrals we don't have to make a new function, we can simply take the product of 2 symmetric difference matrices.
 
 ## Honor Pledge
 
@@ -30,4 +30,4 @@ I pledge that all the work in this repository is my own with only the following 
 
 Signed,
 
-**Quinn Gates**
+**Quinn Gates, Dain Miller**
