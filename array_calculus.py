@@ -26,11 +26,11 @@ def mesh_derivative(x):
     D[0][1] = 1
     D[-1][-2] = -1
     dxmat = np.eye(len(x))
-    for i in range(1,len(x)-1):
+    for i in range(1,len(x)-1):            ### This for loop is equivalent to: dxmat[ir][ir] = 1/(x[1:]-x[:-1]), where ir=np.arange(len(x))
         dxmat[i][i] = 1/((x[i+1]-x[i-1]))
     dxmat[0][0] = 1/(x[1]-x[0])
     dxmat[-1][-1] = 1/(x[len(x)-1]-x[len(x)-2])
-    return (dxmat @ D)
+    return (dxmat @ D)        ### Right idea, but slightly incorrect. Due to the nonuniformity in spacing, there are corrections to the difference equations themselves.
 
 def second_derivative(a,b,n):
     deltax = (b-a)/(n-1)
@@ -83,7 +83,7 @@ def gen_xsqr_array(a,b,n=1000):
     def xsqr(x):
         return x**2
     x = np.array(np.linspace(a,b,n), dtype=np.float64)    #Uses linspace to make array of equally spaced coordinates
-    fx = np.vectorize(xsqr)
+    fx = np.vectorize(xsqr)                                ### Note that ** is already vectorized, so you can simply write: fx= x**2 here
     return (x,fx(x))
 
 def gen_sin_array(a,b,n=1000):
@@ -104,7 +104,7 @@ def gen_sin_array(a,b,n=1000):
     def sin(x):
         return np.sin(x)
     x = np.array(np.linspace(a,b,n), dtype=np.float64)    #Uses linspace to make array of equally spaced coordinates
-    fx = np.vectorize(sin)
+    fx = np.vectorize(sin)                                ### Note that np.sin is already vectorized
     return (x,fx(x))
 
 def gen_gaus_array(a,b,n=1000):
